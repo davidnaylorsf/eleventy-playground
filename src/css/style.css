@@ -1,4 +1,6 @@
 @import url('./reset.css');
+@import url('./components/card.css');
+
 
 /* CSS Variables */
 
@@ -50,4 +52,12 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+/* Card Container Classes */
+.home-card__container {
+  margin: 1rem auto;
+  max-width: 860px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
