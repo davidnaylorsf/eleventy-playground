@@ -1,0 +1,53 @@
+@import url('./reset.css');
+
+/* CSS Variables */
+
+:root {
+  --slate-300: #cbd5e1;
+  --slate-600: #475569;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+img,
+picture {
+  width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utility Classes */
+
+.container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
