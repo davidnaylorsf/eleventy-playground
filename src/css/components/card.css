@@ -23,7 +23,6 @@ a.card__link {
   color: rgb(89, 35, 35);
   padding: .25em .25em;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 a.card__link:visited {
@@ -31,10 +30,10 @@ a.card__link:visited {
 }
 
 a.card__link:hover {
-  background-color: #dd2525;
+  background-color: #aaa;
 }
 
 a.card__link:active {
-  background-color: purple;
+  background-color: rgb(149, 109, 149);
 }
 
