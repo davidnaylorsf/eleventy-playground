@@ -26,6 +26,10 @@ a.card__link {
   text-transform: uppercase;
 }
 
+a.card__link:visited {
+  background-color: #ccc;
+}
+
 a.card__link:hover {
   background-color: #dd2525;
 }
@@ -34,6 +38,3 @@ a.card__link:active {
   background-color: purple;
 }
 
-a.card__link:visited {
-  background-color: #ccc;
-}
