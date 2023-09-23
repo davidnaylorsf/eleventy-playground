@@ -10,26 +10,30 @@
   border-radius: 0.5rem;
 }
 
+.card__title {
+  color: brown;
+}
+
 .card__container--raised {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
-.card__link a {
-  background-color: red;
-  color: white;
-  padding: 1em 1.5em;
+a.card__link {
+  background-color: bisque;
+  color: rgb(89, 35, 35);
+  padding: .25em .25em;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.card__link a:hover {
-  background-color: #555;
+a.card__link:hover {
+  background-color: #dd2525;
 }
 
-.card__link a:active {
-  background-color: black;
+a.card__link:active {
+  background-color: purple;
 }
 
-.card__link a:visited {
+a.card__link:visited {
   background-color: #ccc;
 }

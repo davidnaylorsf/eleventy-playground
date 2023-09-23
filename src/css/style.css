@@ -1,7 +1,6 @@
 @import url('./reset.css');
 @import url('./components/card.css');
 
-
 /* CSS Variables */
 
 :root {
@@ -33,10 +32,7 @@ select {
   font: inherit;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+
 
 /* Utility Classes */
 
