@@ -16,8 +16,7 @@ function ElementsData() {
     <div>
       <h2>${props}</h2>
     </div>
-  `
+  `;
 }
 
 module.exports = ElementsData;
-// return response;
