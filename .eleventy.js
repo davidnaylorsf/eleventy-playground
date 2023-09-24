@@ -1,4 +1,5 @@
 const SimpleCard = require('./src/_includes/components/SimpleCard');
+const elementsData = require('./src/includes/components/ElementsData');
 
 module.exports = function (eleventyConfig) {
 
@@ -7,6 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/images/");
 
   eleventyConfig.addShortcode("Card", SimpleCard);
+  eleventyConfig.addShortcode("ElementsData", elementsData);
 
   return {
     dir: {
