@@ -11,10 +11,13 @@ response.properties = props;
 response.ids = ids;
 response.description = description;
 
+const displayed = props.Section[0].Information[0].Name
+
 function ElementsData() {
   return html`
     <div>
-      <h2>${props}</h2>
+      <h3>${props.Section[0].Information[0].Name}: ${props.Section[0].Information[0].Value.StringWithMarkup[0].String}</h3>
+      <h4>Source Ref: ${props.Section[0].Information[0].ReferenceNumber}</h4>
     </div>
   `;
 }
