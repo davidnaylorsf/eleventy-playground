@@ -10,6 +10,10 @@ function ElementsData(RecordNumber) {
   seca=0;
   secb=2;
   secc=3;
+  secd=5;
+  sece=6;
+  secf=9;
+  secg=10;
 
   return html`
     <div>
@@ -17,6 +21,9 @@ function ElementsData(RecordNumber) {
       <p>${props.Section[seca].Information[0].Name}: ${props.Section[seca].Information[0].Value.StringWithMarkup[0].String}, [ref:${props.Section[seca].Information[0].ReferenceNumber}]</p>
       <p>${props.Section[secb].TOCHeading}: ${props.Section[secb].Information[0].Value.StringWithMarkup[0].String} [ref:${props.Section[secb].Information[0].ReferenceNumber}]</p>
       <p>${props.Section[secc].TOCHeading}: ${props.Section[secc].Information[0].Value.StringWithMarkup[0].String} [ref:${props.Section[secc].Information[0].ReferenceNumber}]</p>
+      
+      
+      
       <p>${description.TOCHeading}: ${description.Information[0].Value.StringWithMarkup[0].String} [ref:${description.Information[0].ReferenceNumber}]</p>
       <p>${compounds.TOCHeading}: ${compounds.Information[0].Value.StringWithMarkup[0].String} [ref:${compounds.Information[0].ReferenceNumber}]</p>
     </div>
