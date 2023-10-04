@@ -1,33 +1,39 @@
 const {html} = require('common-tags');
-const elementsData = require("../../_data/ELEMENTS_v2.json");
+// const elementsData = require("../../_data/ELEMENTS_v2.json");
+const references_data = require("../../_data/References_v1.json");
+const sections_data = require("../../_data/Sections_v1.json");
+const subInformations_data = require("../../_data/SubInformations_v1.json");
+const subSections_data = require("../../_data/SubSections_v1.json");
 
-function ElementsData(RecordNumber) {
-  const record = elementsData.find((ITEM) => ITEM.Record.RecordNumber === RecordNumber);
-  identifiers = record.Record.Section[0];
-  props = record.Record.Section[1];
-  description = record.Record.Section[3];
-  compounds = record.Record.Section[5];
-  seca=0;
-  secb=2;
-  secc=3;
-  secd=5;
-  sece=6;
-  secf=9;
-  secg=10;
+
+
+function ElementsData(RecordNumber, SectionName) {
+  
+  const references = references_data.find((ITEM) => ITEM.RecordNumber === RecordNumber);
+  const sections = sections_data.filter((ITEM) => ITEM.RecordNumber === RecordNumber);
+  const section = sections.filter(
+    (ITEM) => ITEM.Section.TOCHeading === SectionName);
+  const subSections = subSections_data.filter(
+    (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
+  const subInformations = subInformations_data.filter(
+    (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
+
+
+  ref1 = references.References[0];
+  ref2 = references.References[1];
+
 
   return html`
     <div>
-      <h3>${identifiers.Section[0].Information[0].Name}: ${identifiers.Section[0].Information[0].Value.StringWithMarkup[0].String}</h3>
-      <p>${props.Section[seca].Information[0].Name}: ${props.Section[seca].Information[0].Value.StringWithMarkup[0].String}, [ref:${props.Section[seca].Information[0].ReferenceNumber}]</p>
-      <p>${props.Section[secb].TOCHeading}: ${props.Section[secb].Information[0].Value.StringWithMarkup[0].String}, [ref:${props.Section[secb].Information[0].ReferenceNumber}]</p>
-      <p>${props.Section[secc].TOCHeading}: ${props.Section[secc].Information[0].Value.StringWithMarkup[0].String}, [ref:${props.Section[secc].Information[0].ReferenceNumber}]</p>
+      <h3>${section[0].RecordTitle}</h3>
+
       
-      
-      
-      <p>${description.TOCHeading}: ${description.Information[0].Value.StringWithMarkup[0].String} [ref:${description.Information[0].ReferenceNumber}]</p>
-      <p>${compounds.TOCHeading}: ${compounds.Information[0].Value.StringWithMarkup[0].String} [ref:${compounds.Information[0].ReferenceNumber}]</p>
+
     </div>
   `;
 }
 
 module.exports = ElementsData;
+
+ht1 = ElementsData(1, 'History');
+ht2 = ElementsData(2, 'Properties');
