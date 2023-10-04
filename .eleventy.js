@@ -8,7 +8,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/images/");
 
   eleventyConfig.addShortcode("Card", SimpleCard);
-  eleventyConfig.addShortcode("ElemData", ElementsData);
+  eleventyConfig.addShortcode("ElemSection", ElementsData.Section);
+  eleventyConfig.addShortcode("ElemTitle", ElementsData.Title);
+
 
   return {
     dir: {

@@ -3,11 +3,12 @@ title: "Eleventy Playground"
 layout: "base.njk"
 ---
   <h1>{{ title }} - Home Page</h1>
+  <h3> {% ElemTitle 1 %} </h3>
 
   <div class="home-card__container">
-    {% ElemData 1, 'Identifiers' %}
+    {% ElemSection 1, 'Identifiers' %}
   </div>
   <div class="home-card__container">
-    {% ElemData 1, 'History' %}
+    {% ElemSection 1, 'History' %}
   </div>
 
