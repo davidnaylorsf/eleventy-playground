@@ -6,7 +6,7 @@ const subInformations_data = require("../../_data/SubInformations_v1.json");
 const subSections_data = require("../../_data/SubSections_v1.json");
 
 
-function Title(RecordNumber) {
+function RecordTitle(RecordNumber) {
   const sections = sections_data.filter((ITEM) => ITEM.RecordNumber === RecordNumber);
   const section = sections.filter(
     (ITEM) => ITEM.Section.TOCHeading === 'Identifiers')[0];  
@@ -27,16 +27,35 @@ function Section(RecordNumber, SectionName) {
     (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
   const subInformations = subInformations_data.filter(
     (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
+  //const subInformation = subInformations.filter(
+  //  (ITEM) => ITEM.Section.TOCHeading === SectionName)[0]
+  subInfo0 = subInformations[0].HTMLstring  
+
+  infoStrings = [];
+  for ( i in subInformations ) {
+    if ( 'HTMLstring' in subInformations[i] ) {
+      infoStrings.push(subInformations[i].HTMLstring);
+    } else {
+      infoStrings.push(subInformations[i].string);
+    }
+    
+  }
+
+  // console.log(infoStrings);
+
+  // sectionInfo1 =  section.Section.Information[0].Value.StringWithMarkup[0].String
+ 
+
 
   return html`
     <div>
-      <p>${section.Section.Description} </p>
+      ${infoStrings.map(infoStrings => `<p>${infoStrings}</p>`)}
     </div>
   `;
 }
 
 module.exports.Section = Section;
-module.exports.Title = Title;
+module.exports.RecordTitle = RecordTitle;
 
 ht1 = Section(1, 'History');
-ht2 = Section(2, 'Properties');
+// ht2 = Section(2, 'Properties');
