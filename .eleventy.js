@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("Card", SimpleCard);
   eleventyConfig.addShortcode("ElemSection", ElementsData.Section);
+  eleventyConfig.addShortcode("ElemSubSection", ElementsData.SubSection);
   eleventyConfig.addShortcode("ElemRecordMeta", ElementsData.RecordMeta);
 
 

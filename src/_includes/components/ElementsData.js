@@ -29,12 +29,12 @@ function RecordMeta(RecordNumber, MetaType) {
 
 function Section(RecordNumber, SectionName) {
   
-  const references = references_data.find((ITEM) => ITEM.RecordNumber === RecordNumber);
+  // const references = references_data.find((ITEM) => ITEM.RecordNumber === RecordNumber);
   const sections = sections_data.filter((ITEM) => ITEM.RecordNumber === RecordNumber);
   const section = sections.filter(
     (ITEM) => ITEM.Section.TOCHeading === SectionName)[0];
-  const subSections = subSections_data.filter(
-    (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
+  // const subSections = subSections_data.filter(
+  //  (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
 
   if ( ( typeof section !== 'undefined' ) && ('Info' in section)) {
     SectionInfo = section.Info;
@@ -46,12 +46,6 @@ function Section(RecordNumber, SectionName) {
     
   
 
-  
-
-  // testSection1 = section[0];
-  // testSection2 = section[1];
-
-
   return html`
     <div>
       ${infoStrings.map(infoStrings => `<p>${infoStrings}</p>`)}
@@ -59,8 +53,41 @@ function Section(RecordNumber, SectionName) {
   `;
 }
 
+function SubSection(RecordNumber, SectionName, SubSectionNumber) {
+
+  const references = references_data.find((ITEM) => ITEM.RecordNumber === RecordNumber);
+  const sections = sections_data.filter((ITEM) => ITEM.RecordNumber === RecordNumber);
+  const section = sections.filter(
+    (ITEM) => ITEM.Section.TOCHeading === SectionName)[0];
+  const subSections = subSections_data.filter(
+    (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
+  const subSection = subSections[SubSectionNumber - 1]
+   
+    
+  foundSubSection = subSection;
+
+  if ( ( typeof subSection !== 'undefined' ) && ('Info' in subSection)) {
+    subSectionInfo = subSection.Info;
+    infoStrings = Array.from(subSectionInfo, x => x.htmlString);
+  } else {
+    subSectionInfo = [];
+    infoStrings = [];
+  }
+
+  return html`
+  <div>
+    ${infoStrings.map(infoStrings => `<p>${infoStrings}</p>`)}
+  </div>
+`;
+
+}
+
+
 module.exports.Section = Section;
+module.exports.SubSection = SubSection;
 module.exports.RecordMeta = RecordMeta;
+
+sub1 = SubSection(8, 'History', 1)
 
 ht1 = Section(1, 'Description');
 uses1 = Section(4, 'Uses');
