@@ -7,6 +7,10 @@ const subSections_data = require("../../_data/SubSections_v2.json");
 
 
 function RecordMeta(RecordNumber, MetaType) {
+  // Allowed values of MetaType: 'RecordNumber'; and 'RecordTitle'
+  // Of course when MetaType = 'RecordNumber', the value of recordMeta returned 
+  // will be the same as the value of RecordNumber in the function call, 
+  // so nothing is learnt by making the call. It only provides a consistency check on the data.
   const sections = sections_data.filter((ITEM) => ITEM.RecordNumber === RecordNumber);
   const section = sections.filter(
     (ITEM) => ITEM.Section.TOCHeading === 'Identifiers')[0];  
@@ -17,8 +21,6 @@ function RecordMeta(RecordNumber, MetaType) {
     recordMeta = ""
   }
     
-
-
     return html`
       <span>${recordMeta}</span>
   `;
@@ -34,10 +36,17 @@ function Section(RecordNumber, SectionName) {
   const subSections = subSections_data.filter(
     (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
 
-  const SectionInfo = section.Info;
+  if ( ( typeof section !== 'undefined' ) && ('Info' in section)) {
+    SectionInfo = section.Info;
+    infoStrings = Array.from(SectionInfo, x => x.htmlString);
+  } else {
+    SectionInfo = [];
+    infoStrings = [];
+  }
+    
   
 
-  infoStrings = Array.from(SectionInfo, x => x.htmlString);
+  
 
   // testSection1 = section[0];
   // testSection2 = section[1];
@@ -53,10 +62,10 @@ function Section(RecordNumber, SectionName) {
 module.exports.Section = Section;
 module.exports.RecordMeta = RecordMeta;
 
-ht1 = Section(1, 'History');
+ht1 = Section(1, 'Description');
 uses1 = Section(4, 'Uses');
 
 // ht2 = Section(2, 'Properties');
 rt1 = RecordMeta(1, 'RecordTitle');
 rt2 = RecordMeta(1, 'RecordNumber');
-rt3 = RecordMeta(3, 'Title');
+rt3 = RecordMeta(3, 'RecordTitle');
