@@ -2,11 +2,12 @@
 title: "Eleventy Playground"
 layout: "base.njk"
 ---
-  <h1>{{ title }} - Home Page</h1>
-  <h3> {% ElemTitle 1 %} </h3>
-
-  <div class="home-card__container">
-    {% ElemSection 1, 'History' %}
-  </div>
+  <h1>Elements - Home Page</h1>
+  {% for i in range(1,119)-%}
+  <h3> {% ElemTitle i %} </h3>  
+    <div class="home-card__container">
+      {% ElemSection i, 'History' %}
+    </div>
+  {%- endfor %}
 
 

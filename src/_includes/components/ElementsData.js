@@ -26,22 +26,13 @@ function Section(RecordNumber, SectionName) {
   const subSections = subSections_data.filter(
     (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
 
-  infoStrings = [];
   const SectionInfo = section.Info;
-    for (info of SectionInfo) {
-      if (info.htmlString.length > 0) {
-        infoStrings.push(info.htmlString);
-      }
-      
-    }
   
-    testSection1 = section[0];
-    testSection2 = section[1];
 
+  infoStrings = Array.from(SectionInfo, x => x.htmlString);
 
-    
-
-
+  // testSection1 = section[0];
+  // testSection2 = section[1];
 
 
   return html`
@@ -56,3 +47,6 @@ module.exports.RecordTitle = RecordTitle;
 
 ht1 = Section(1, 'History');
 // ht2 = Section(2, 'Properties');
+rt1 = RecordTitle(1);
+rt2 = RecordTitle(2);
+rt3 = RecordTitle(3);
