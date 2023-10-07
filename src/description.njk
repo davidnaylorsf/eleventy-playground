@@ -1,13 +1,11 @@
 ---
-title: "Elements"
+title: "Elements - Description"
 layout: "base.njk"
 ---
-  <h1>Elements - Sources</h1>
+  <h1>Elements - Description</h1>
   {% for i in range(1,93)-%}
   <h3> {% ElemRecordMeta i, 'RecordNumber' %} : {% ElemRecordMeta i, 'RecordTitle' %}</h3>  
     <div class="home-card__container">
-      {% ElemSection i, 'Sources' %}
+      {% ElemSection i, 'Description' %}
     </div>
   {%- endfor %}
-
-
