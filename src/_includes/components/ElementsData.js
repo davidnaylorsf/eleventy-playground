@@ -6,13 +6,21 @@ const sections_data = require("../../_data/Sections_v2.json");
 const subSections_data = require("../../_data/SubSections_v2.json");
 
 
-function RecordTitle(RecordNumber) {
+function RecordMeta(RecordNumber, MetaType) {
   const sections = sections_data.filter((ITEM) => ITEM.RecordNumber === RecordNumber);
   const section = sections.filter(
     (ITEM) => ITEM.Section.TOCHeading === 'Identifiers')[0];  
 
+  if ( MetaType in section ) {
+    recordMeta = section[MetaType]
+  } else {
+    recordMeta = ""
+  }
+    
+
+
     return html`
-      <span>${section.RecordTitle}</span>
+      <span>${recordMeta}</span>
   `;
 }
 
@@ -43,10 +51,12 @@ function Section(RecordNumber, SectionName) {
 }
 
 module.exports.Section = Section;
-module.exports.RecordTitle = RecordTitle;
+module.exports.RecordMeta = RecordMeta;
 
 ht1 = Section(1, 'History');
+uses1 = Section(4, 'Uses');
+
 // ht2 = Section(2, 'Properties');
-rt1 = RecordTitle(1);
-rt2 = RecordTitle(2);
-rt3 = RecordTitle(3);
+rt1 = RecordMeta(1, 'RecordTitle');
+rt2 = RecordMeta(1, 'RecordNumber');
+rt3 = RecordMeta(3, 'Title');
