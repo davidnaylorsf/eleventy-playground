@@ -1,4 +1,4 @@
-const {html} = require('common-tags');
+// const {html} = require('common-tags');
 
 const references_data = require("../../_data/References_v1.json");
 const sections_data = require("../../_data/Sections_v2.json");
@@ -21,13 +21,16 @@ function SectionData(RecordNumber, SectionName) {
     infoStrings = [];
   }
     
-  
+  template1 = `<div>
+${infoStrings.map(infoStrings => `<p>${infoStrings}</p>`)}
+</div>`;
 
-  return html`
-    <div>
-      ${infoStrings.map(infoStrings => `<p>${infoStrings}</p>`)}
-    </div>
-  `;
+
+
+  return template1;
 }
 
 module.exports.SectionData = SectionData;
+
+histEl8 = SectionData(8, 'History');
+histEl12 = SectionData(12, 'History');

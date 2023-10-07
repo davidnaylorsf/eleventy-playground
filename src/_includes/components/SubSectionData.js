@@ -1,4 +1,4 @@
-const {html} = require('common-tags');
+// const {html} = require('common-tags');
 
 const references_data = require("../../_data/References_v1.json");
 // const sections_data = require("../../_data/Sections_v2.json");
@@ -13,9 +13,32 @@ function SubSection(RecordNumber, SectionName, SubSectionNumber) {
   const subSections = subSections_data.filter(
     (ITEM) => ITEM.RecordNumber === RecordNumber && ITEM.SectionName === SectionName);
   const subSection = subSections[SubSectionNumber - 1]
-   
-    
-  foundSubSection = subSection;
+  
+  isTable = false;
+  numberOfColumns = 0;
+  columnNames = []
+  useNamesAsColumnHeadings = false;
+
+  if ( ( typeof subSection !== 'undefined' ) && ('DisplayControls' in subSection)) {
+    if ('CreateTable' in subSection.DisplayControls ) {
+      CreateTable = subSection.DisplayControls.CreateTable;
+      isTable = true;
+      if ('ColumnsFromNamedLists' in CreateTable) {
+        columns = CreateTable.ColumnsFromNamedLists;
+        numberOfColumns = CreateTable.NumberOfColumns;
+        fromInformationIn = CreateTable.FromInformationIn;
+        if (fromInformationIn != 'ThisSection') {
+          console.log("WARNING: Need to CreateTable from Information in :" + fromInformationIn);
+        }
+        columnNames = columns.Name;
+        useNamesAsColumnHeadings = columns.UseNamesAsColumnsHeadings;
+      }
+    }
+  }
+
+  colNames = columnNames;
+
+
 
   if ( ( typeof subSection !== 'undefined' ) && ('Info' in subSection)) {
     subSectionInfo = subSection.Info;
@@ -25,12 +48,18 @@ function SubSection(RecordNumber, SectionName, SubSectionNumber) {
     infoStrings = [];
   }
 
-  return html`
+  template =  `
   <div>
     ${infoStrings.map(infoStrings => `<p>${infoStrings}</p>`)}
   </div>
 `;
 
+templateStr = template;
+
+return template;
+
 }
 
 module.exports.SubSection = SubSection;
+
+sub1 = SubSection(8, 'History', 1)
