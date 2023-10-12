@@ -3,6 +3,8 @@ const SectionData = require('./src/_includes/components/SectionData');
 const SubSectionData = require('./src/_includes/components/SubSectionData');
 const RecordMetaData = require('./src/_includes/components/RecordMetaData');
 
+const CompoundsData = require('./src/_includes/components/CompoundsData');
+
 module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("./src/css/");
@@ -12,7 +14,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("Card", SimpleCard);
   eleventyConfig.addShortcode("ElemSection", SectionData.SectionData);
   eleventyConfig.addShortcode("ElemSubSection", SubSectionData.SubSection);
+  eleventyConfig.addShortcode("ElemSubSectionMeta", SubSectionData.SubSectionMeta);
   eleventyConfig.addShortcode("ElemRecordMeta", RecordMetaData.RecordMetaData);
+
+  eleventyConfig.addShortcode("Compound", CompoundsData.Compound);  
 
 
   return {

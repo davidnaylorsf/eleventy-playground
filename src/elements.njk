@@ -1,0 +1,18 @@
+---
+title: "Elements"
+layout: "base.njk"
+---
+  <h1>Elements - History</h1>
+  {% for i in range(8,14)-%}
+  <h3> {% ElemRecordMeta i, 'RecordNumber' %} : {% ElemRecordMeta i, 'RecordTitle' %}</h3>  
+    <div class="home-card__container">
+      {% ElemSection i, 'History' %}
+    </div>
+    <div class="home-card__container">
+      <h4>{% ElemSubSectionMeta i, 'History', 1, 'subSectionName' %}</h4>
+    </div>
+        
+    <div class="home-card__container">
+      {% ElemSubSection i, 'History', 1 %}
+    </div>
+  {%- endfor %}
