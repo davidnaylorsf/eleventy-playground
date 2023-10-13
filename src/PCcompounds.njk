@@ -2,7 +2,10 @@
 pagination:
   data: Compounds
   size: 1
-permalink: 'comp/{{ pagination.pageNumber}}/index.html'
+permalink: 'cid/{{ pagination.items[0].Cid}}/index.html'
 ---
 <h2>{{ pagination.items[0].Title }}</h2>
 <div>{{ pagination.items[0].Description }}</div>
+<div><a href="{{pagination.items[0].DescriptionURL}}">{{pagination.items[0].DescriptionSourceName}}</a> </div>
+<div>Mol wt: {{ pagination.items[0].Molecular_Weight }} g/mole</div>
+<div>SMILES: {{pagination.items[0].SMILES_Canonical}}</div>

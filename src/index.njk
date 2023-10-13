@@ -7,7 +7,7 @@ layout: "base.njk"
 
 <ul>
   {%- for compound in Compounds %}
-  <li>{{ compound.Title }}</li>
+  <li><a href="/cid/{{compound.Cid}}" target="_blank">{{ compound.Title }}</a></li>
   {% endfor -%}
 </ul>
 
