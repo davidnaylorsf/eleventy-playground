@@ -1,0 +1,8 @@
+---
+pagination:
+  data: Compounds
+  size: 1
+permalink: 'comp/{{ pagination.pageNumber}}/index.html'
+---
+<h2>{{ pagination.items[0].Title }}</h2>
+<div>{{ pagination.items[0].Description }}</div>

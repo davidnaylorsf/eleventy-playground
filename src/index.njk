@@ -1,14 +1,14 @@
 ---
-title: "Elements"
+title: "Compounds"
 layout: "base.njk"
 ---
-  <h1>Compounds</h1>
 
-  {% for i in range(101,150)-%}
-    <div class="home-card__container">
-      {% Compound i %}
-    </div>
-  {%- endfor %}
- 
+<h2> Compounds</h2>
+
+<ul>
+  {%- for compound in Compounds %}
+  <li>{{ compound.Title }}</li>
+  {% endfor -%}
+</ul>
 
 
