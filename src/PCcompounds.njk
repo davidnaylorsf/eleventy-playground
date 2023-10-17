@@ -3,9 +3,16 @@ pagination:
   data: Compounds
   size: 1
 permalink: 'cid/{{ pagination.items[0].Cid}}/index.html'
+layout: "base.njk"
 ---
 <h2>{{ pagination.items[0].Title }}</h2>
-<div>{{ pagination.items[0].Description }}</div>
-<div><a href="{{pagination.items[0].DescriptionURL}}">{{pagination.items[0].DescriptionSourceName}}</a> </div>
-<div>Mol wt: {{ pagination.items[0].Molecular_Weight }} g/mole</div>
-<div>SMILES: {{pagination.items[0].SMILES_Canonical}}</div>
+<div class="container element-card">
+  <div>{{ pagination.items[0].Description }}</div>
+  <div><a href="{{pagination.items[0].DescriptionURL}}">{{pagination.items[0].DescriptionSourceName}}</a> </div>
+  <div><img class="structure-image" alt="{{pagination.items[0].Title}}" src="/images/CID_{{pagination.items[0].Cid}}.png" ></div>
+  <div>Molecular Formula: {{ pagination.items[0].Molecular_Formula }}</div>
+  <div>Mol wt: {{ pagination.items[0].Molecular_Weight }} g/mole</div>
+  <div>SMILES: {{pagination.items[0].SMILES_Canonical}}</div>
+  <div>{{pagination.items[0].InChI_Standard}}</div>
+  <div>InChIKey: {{pagination.items[0].InChIKey_Standard}}</div>
+</div>

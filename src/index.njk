@@ -7,7 +7,8 @@ layout: "base.njk"
 
 <ul>
   {%- for compound in Compounds %}
-  <li><a href="/cid/{{compound.Cid}}" target="_blank">{{ compound.Title }}</a></li>
+  <li><div class="container element-card"><a href="/cid/{{compound.Cid}}" target="_blank">{{ compound.Title }}</a>
+    <a href="/cid/{{compound.Cid}}" target="_blank"><img class="structure-image" src="/images/CID_{{compound.Cid}}.png" ></a></div></li>
   {% endfor -%}
 </ul>
 
