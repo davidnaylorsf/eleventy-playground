@@ -22,7 +22,7 @@ body {
 img,
 picture {
   width: 50%;
-  display: inline;
+  display: block;
 }
 
 input,
@@ -37,6 +37,8 @@ select {
 /* Utility Classes */
 
 .container {
+  display: flex-inline;
+  flex-wrap: wrap;
   max-width: 64rem;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -52,7 +54,6 @@ select {
 
 /* Icon Styles */
 .icon {
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
@@ -62,12 +63,9 @@ select {
 /* 2D Structure Image Styles */
 .structure-image {
   
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  align-items: right;
-  width: 20%;
-  height: 20%;
+  align-self: center;
+/*   width: 20%;
+  height: 20%; */
   border-style: groove;
 }
 

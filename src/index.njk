@@ -2,14 +2,14 @@
 title: "Compounds"
 layout: "base.njk"
 ---
-
+<div class="container" style="flex-direction: column;">
 <h2> Compounds</h2>
 
 <ul>
   {%- for compound in Compounds %}
-  <li><div class="container element-card"><a href="/cid/{{compound.Cid}}" target="_blank">{{ compound.Title }}</a>
+  <li><div ><a href="/cid/{{compound.Cid}}" target="_blank">{{ compound.Title }}</a>
     <a href="/cid/{{compound.Cid}}" target="_blank"><img class="structure-image" src="/images/CID_{{compound.Cid}}.png" ></a></div></li>
   {% endfor -%}
 </ul>
 
-
+</div>
