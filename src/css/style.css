@@ -44,6 +44,10 @@ select {
   width: 200px ; 
 }
 
+.page {
+  margin: 1rem auto;
+}
+
 /* Utility Classes */
 
 .container {
