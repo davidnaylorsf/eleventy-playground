@@ -2,28 +2,28 @@
 pagination:
   data: Compounds
   size: 1
-  alias: compoundPageData
+  alias: compound
   addAllPagesToCollections: true
-permalink: 'cid/{{ compoundPageData.Cid}}/index.html'
+permalink: 'cid/{{ compound.Cid}}/index.html'
 layout: "base.njk"
 eleventyComputed:
   eleventyNavigation:
-    key: "{{ compoundPageData.Title }}"
+    key: "{{ compound.Title }}"
 ---
 
 <div >
-  <h2>{{ compoundPageData.Title }}</h2>
-  <div class="compound-description">{{ compoundPageData.Description }}</div>
-  <div ><img class="structure-image" alt="{{compoundPageData.Title}}" src="/images/CID_{{compoundPageData.Cid}}.png" ></div>
+  <h2>{{ compound.Title }}</h2>
+  <div class="compound-description">{{ compound.Description }}</div>
+  <div ><img class="structure-image" alt="{{compound.Title}}" src="/images/CID_{{compound.Cid}}.png" ></div>
   <div  >
-    <div>Molecular Formula: {{ compoundPageData.Molecular_Formula }}</div>
-    <div>Molecular wt: {{ compoundPageData.Molecular_Weight }} g/mole</div>
-    <div>{{compoundPageData.SMILES_Canonical}}</div>
-    <div>{{compoundPageData.InChI_Standard}}</div>
-    <div>InChIKey: {{compoundPageData.InChIKey_Standard}}</div>
+    <div>Molecular Formula: {{ compound.Molecular_Formula }}</div>
+    <div>Molecular wt: {{ compound.Molecular_Weight }} g/mole</div>
+    <div>{{compound.SMILES_Canonical}}</div>
+    <div>{{compound.InChI_Standard}}</div>
+    <div>InChIKey: {{compound.InChIKey_Standard}}</div>
   </div>
   <div class="row-of-links">
-    <div  ><a href="{{compoundPageData.DescriptionURL}}" target="_blank">{{compoundPageData.DescriptionSourceName}}</a> </div>
-    <div  ><a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{compoundPageData.Cid}}" target="_blank">PubChem</a></div>
+    <div  ><a href="{{compound.DescriptionURL}}" target="_blank">{{compound.DescriptionSourceName}}</a> </div>
+    <div  ><a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{compound.Cid}}" target="_blank">PubChem</a></div>
   </div>
 </div>
