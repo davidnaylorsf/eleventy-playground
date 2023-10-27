@@ -17,6 +17,10 @@
 <body>
   <div class="page content">
     {% include "header.njk" %}
+    <details>
+      <summary>Molecule selection menu:</summary>
+      <div>{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}</div>
+    </details>
     <main class="body container">
       {{ content | safe }}
     </main>

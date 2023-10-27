@@ -2,23 +2,28 @@
 pagination:
   data: Compounds
   size: 1
-permalink: 'cid/{{ pagination.items[0].Cid}}/index.html'
+  alias: compoundPageData
+  addAllPagesToCollections: true
+permalink: 'cid/{{ compoundPageData.Cid}}/index.html'
 layout: "base.njk"
+eleventyComputed:
+  eleventyNavigation:
+    key: "{{ compoundPageData.Title }}"
 ---
 
 <div >
-  <h2>{{ pagination.items[0].Title }}</h2>
-  <div class="compound-description">{{ pagination.items[0].Description }}</div>
-  <div ><img class="structure-image" alt="{{pagination.items[0].Title}}" src="/images/CID_{{pagination.items[0].Cid}}.png" ></div>
+  <h2>{{ compoundPageData.Title }}</h2>
+  <div class="compound-description">{{ compoundPageData.Description }}</div>
+  <div ><img class="structure-image" alt="{{compoundPageData.Title}}" src="/images/CID_{{compoundPageData.Cid}}.png" ></div>
   <div  >
-    <div>Molecular Formula: {{ pagination.items[0].Molecular_Formula }}</div>
-    <div>Molecular wt: {{ pagination.items[0].Molecular_Weight }} g/mole</div>
-    <div>{{pagination.items[0].SMILES_Canonical}}</div>
-    <div>{{pagination.items[0].InChI_Standard}}</div>
-    <div>InChIKey: {{pagination.items[0].InChIKey_Standard}}</div>
+    <div>Molecular Formula: {{ compoundPageData.Molecular_Formula }}</div>
+    <div>Molecular wt: {{ compoundPageData.Molecular_Weight }} g/mole</div>
+    <div>{{compoundPageData.SMILES_Canonical}}</div>
+    <div>{{compoundPageData.InChI_Standard}}</div>
+    <div>InChIKey: {{compoundPageData.InChIKey_Standard}}</div>
   </div>
   <div class="row-of-links">
-    <div  ><a href="{{pagination.items[0].DescriptionURL}}" target="_blank">{{pagination.items[0].DescriptionSourceName}}</a> </div>
-    <div  ><a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{pagination.items[0].Cid}}" target="_blank">PubChem</a></div>
+    <div  ><a href="{{compoundPageData.DescriptionURL}}" target="_blank">{{compoundPageData.DescriptionSourceName}}</a> </div>
+    <div  ><a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{compoundPageData.Cid}}" target="_blank">PubChem</a></div>
   </div>
 </div>
