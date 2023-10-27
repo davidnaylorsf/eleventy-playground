@@ -13,7 +13,7 @@ layout: "base.njk"
   <div  >
     <div>Molecular Formula: {{ pagination.items[0].Molecular_Formula }}</div>
     <div>Molecular wt: {{ pagination.items[0].Molecular_Weight }} g/mole</div>
-    <div class="text-with-icon"><img class="icon" title="SMILES:" alt="SMILES" src="/images/Smile.png">: {{pagination.items[0].SMILES_Canonical}}</div>
+    <div>{{pagination.items[0].SMILES_Canonical}}</div>
     <div>{{pagination.items[0].InChI_Standard}}</div>
     <div>InChIKey: {{pagination.items[0].InChIKey_Standard}}</div>
   </div>
