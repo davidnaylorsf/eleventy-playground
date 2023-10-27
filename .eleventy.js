@@ -5,11 +5,15 @@ const RecordMetaData = require('./src/_includes/components/RecordMetaData');
 
 const CompoundsData = require('./src/_includes/components/CompoundsData');
 
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
 module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("./src/css/");
   eleventyConfig.addWatchTarget("./src/css/");
   eleventyConfig.addPassthroughCopy("./src/images/");
+
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addShortcode("Card", SimpleCard);
   eleventyConfig.addShortcode("ElemSection", SectionData.SectionData);
