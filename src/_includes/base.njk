@@ -19,7 +19,7 @@
     {% include "header.njk" %}
     <details>
       <summary>Molecule selection menu:</summary>
-      <div>{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}</div>
+      <div>{{ collections.compounds | eleventyNavigation | eleventyNavigationToHtml | safe }}</div>
     </details>
     <main class="body container">
       {{ content | safe }}

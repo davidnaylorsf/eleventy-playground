@@ -1,4 +1,5 @@
 ---
+tags: compounds
 pagination:
   data: Compounds
   size: 1
@@ -18,7 +19,7 @@ eleventyComputed:
   <div  >
     <div>Molecular Formula: {{ compound.Molecular_Formula }}</div>
     <div>Molecular wt: {{ compound.Molecular_Weight }} g/mole</div>
-    <div>{{compound.SMILES_Canonical}}</div>
+    <div>SMILES: {{compound.SMILES_Canonical}}</div>
     <div>{{compound.InChI_Standard}}</div>
     <div>InChIKey: {{compound.InChIKey_Standard}}</div>
   </div>
